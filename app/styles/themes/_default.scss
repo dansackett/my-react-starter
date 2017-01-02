@@ -1,0 +1,38 @@
+body {
+  background-color: $wet-asphalt;
+  color: $clouds;
+}
+
+.navbar {
+  background-color: $midnight-blue;
+  height: 50px;
+
+  a {
+    color: $clouds;
+    line-height: 50px;
+    padding: 13px 25px;
+    text-decoration: none;
+
+    &.active, &:hover, &:active {
+      background-color: $peter-river;
+    }
+  }
+}
+
+.controls {
+  button {
+    color: $clouds;
+    padding: 20px;
+
+    &.btn__increment {
+      background-color: $emerald;
+      border: none;
+      margin-right: 20px;
+    }
+
+    &.btn__decrement {
+      background-color: $alizarin;
+      border: none;
+    }
+  }
+}
