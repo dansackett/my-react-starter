@@ -1,19 +1,26 @@
 import { delay } from 'redux-saga';
-import { takeEvery, put, call, fork } from 'redux-saga/effects';
+import { take, takeEvery, put, call, fork } from 'redux-saga/effects';
 
-import { INCREMENT, INCREMENT_ASYNC } from 'Constants/example';
+import * as example_actions from 'Actions/example';
 
 export function* incrementAsync() {
-  yield call(delay, 1000)
-  yield put({type: INCREMENT})
+  yield put({type: example_actions.INCREMENT_ASYNC_REQUEST});
+  yield call(delay, 1000);
+  yield put({type: example_actions.INCREMENT});
+  yield put({type: example_actions.INCREMENT_ASYNC_DONE});
+}
+
+export function* watchIncrement() {
+  yield take(example_actions.INCREMENT, example_actions.increment);
 }
 
 export function* watchIncrementAsync() {
-  yield takeEvery(INCREMENT_ASYNC, incrementAsync)
+  yield takeEvery(example_actions.INCREMENT_ASYNC, incrementAsync);
 }
 
 export default function* root() {
   yield [
+    fork(watchIncrement),
     fork(watchIncrementAsync)
-  ]
+  ];
 }

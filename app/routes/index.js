@@ -1,17 +1,15 @@
 import React from 'react';
-import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import App from 'Containers/App';
-import HomePage from 'Pages/HomePage';
-import AboutPage from 'Pages/AboutPage';
-import ReduxExamplePage from 'Pages/ReduxExample';
+import HomePage from 'Containers/HomePage';
+import AboutPage from 'Containers/AboutPage';
+import ReduxPage from 'Containers/ReduxPage';
 
-export default (props) => (
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={HomePage} />
-      <Route path="about" component={AboutPage} />
-      <Route path="redux" component={ReduxExamplePage} />
-    </Route>
-  </Router>
+export default (
+  <Route path="/" component={App}>
+    <IndexRoute component={HomePage} />
+    <Route path="about" component={AboutPage} />
+    <Route path="redux" component={ReduxPage} />
+  </Route>
 );

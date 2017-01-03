@@ -4,15 +4,17 @@ import 'Styles/main';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { browserHistory } from 'react-router';
 
-import Router from 'Routes';
+import Root from 'Containers/Root'
+import routes from 'Routes';
 import configureStore from 'Store';
 import rootSaga from 'Sagas';
 
 const initialState = {
   example: {
-    count: 0
+    count: 0,
+    asyncIsLoading: false
   }
 };
 
@@ -21,10 +23,9 @@ const store = configureStore(initialState);
 store.runSaga(rootSaga);
 
 ReactDOM.render(
-  (
-    <Provider store={store}>
-      <Router />
-    </Provider>
-  ),
+  <Root
+    store={store}
+    history={browserHistory}
+    routes={routes} />,
   document.getElementById('root')
 );

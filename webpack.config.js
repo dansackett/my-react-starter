@@ -27,9 +27,7 @@ const common = {
     alias: {
       Actions: path.resolve(__dirname, 'app/actions'),
       Components: path.resolve(__dirname, 'app/components'),
-      Constants: path.resolve(__dirname, 'app/constants'),
       Containers: path.resolve(__dirname, 'app/containers'),
-      Pages: path.resolve(__dirname, 'app/components/pages'),
       Reducers: path.resolve(__dirname, 'app/reducers'),
       Routes: path.resolve(__dirname, 'app/routes'),
       Sagas: path.resolve(__dirname, 'app/sagas'),
